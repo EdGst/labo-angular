@@ -18,13 +18,13 @@ export class MemberComponent {
   constructor(private _formBuilder: FormBuilder,
               private _route: Router,
               private _addMemberService: AddMemberService) {
-    // this.userForm = this._formBuilder.group({
-    //   username: [''],
-    //   email: [''],
-    //   birthdate: [null],
-    //   elo: [null, [Validators.min(0), Validators.max(3000)]],
-    //   gender: ['']
-    // })
+    this.userForm = this._formBuilder.group({
+      username: [''],
+      email: [''],
+      birthDate: [null],
+      elo: [null, [Validators.min(0), Validators.max(3000)]],
+      gender: ['']
+    })
 
 
   }
@@ -33,15 +33,15 @@ export class MemberComponent {
   }
 
   addUser() {
-    // if(this.userForm.valid){
-    //   this._addMemberService.addUser(this.userForm.value).pipe(
-    //     tap(() => this._route.navigateByUrl("/user")),
-    //     catchError(()=> {
-    //       this.toggleError()
-    //       return EMPTY;
-    //     })
-    //   ).subscribe()
-    // }
+    if(this.userForm.valid){
+      this._addMemberService.addUser(this.userForm.value).pipe(
+        tap(() => this._route.navigateByUrl("/home")),
+        catchError(()=> {
+          this.toggleError()
+          return EMPTY;
+        })
+      ).subscribe()
+    }
   }
 
   toggleError(){

@@ -5,6 +5,7 @@ import {HomeComponent} from "./components/home/home.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {AppRoutingModule} from "./app-routing.module";
 import {SharedModule} from "./shared/shared.module";
+import {MemberComponent} from "./member/member.component";
 
 
 
@@ -14,6 +15,7 @@ import {SharedModule} from "./shared/shared.module";
     AppComponent,
     NavbarComponent,
     HomeComponent,
+    MemberComponent
 
 
   ],
